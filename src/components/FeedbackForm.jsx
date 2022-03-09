@@ -22,6 +22,7 @@ function FeedbackForm() {
   }, [feedbackEdit]);
 
   const handleTextChange = (e) => {
+    const regex = /^[a-zA-Z0-9.,!"' ]*$/;
     if (text === "") {
       setBtnDisabled(true);
       setMessage(null);
@@ -32,7 +33,7 @@ function FeedbackForm() {
       setMessage(null);
       setBtnDisabled(false);
     }
-    setText(e.target.value);
+    if (regex.test(e.target.value)) setText(e.target.value);
   };
 
   const handleSubmit = (e) => {
