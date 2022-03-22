@@ -6,7 +6,6 @@ import FeedbackContext from "../context/FeedbackContext";
 
 function FeedbackList() {
   const { feedback, isLoading } = useContext(FeedbackContext);
-  console.log(useContext(FeedbackContext));
 
   if (!isLoading && (!feedback || feedback.length === 0)) {
     return <p>No Feedback Yet</p>;
