@@ -16,8 +16,8 @@ export const FeedbackProvider = ({ children }) => {
   //Fetch feedback
   const fetchFeedback = async () => {
     const response = await fetch(`/feedback?_sort=id&_order=desc`);
-    const data = await response.json();
-    setFeedback(data);
+    const data = response.status === 200 ? await response.json() : null;
+    if (data) setFeedback(data);
     setIsLoading(false);
   };
 
